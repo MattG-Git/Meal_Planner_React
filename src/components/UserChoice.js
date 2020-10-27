@@ -29,8 +29,8 @@ function UserChoice(props) {
     return (
       <Form onSubmit={handleUserChoices}>
           <FormGroup>
-              <Label for='dayofweek'>Select The Day Of The Week</Label>
                 <Input onChange={storeDay} type="select" name="dayofweek" id="dayofweek">
+                <option disabled selected> Select A Day</option>
                 <option>MONDAY</option>
                 <option>TUESDAY</option>
                 <option>WEDNESDAY</option>
@@ -39,8 +39,8 @@ function UserChoice(props) {
                 <option>SATURDAY</option>
                 <option>SUNDAY</option>
                 </Input>
-              <Label for='proteinchoice'>Select Your Protein</Label>
                 <Input onChange={storeProtein} type="select" name="proteinchoice" id="proteinchoice">
+                  <option disabled selected> Select A Protein</option>
                   <option>BEEF</option>
                   <option>CHICKEN</option>
                   <option>PORK</option>

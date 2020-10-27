@@ -12,7 +12,7 @@ class Home extends Component {
     super(props); 
     this.state = {  
       currentDay: '', 
-      currentProtein: '', 
+      currentProtein: [], 
       plannedRecipes: [{}]
     };
   }
