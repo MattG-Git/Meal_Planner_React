@@ -1,8 +1,8 @@
-import react from 'react';
+import React from 'react';
 import {Table} from 'reactstrap';
 
 
-function Calendar() {
+function Calendar(props) {
     return (
       <div className='Calendar'>
           <Table responsive>

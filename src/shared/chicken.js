@@ -1,4 +1,4 @@
-export const Chicken = [
+export const CHICKEN = [
     {
         id: 0,
         name: "Chicken Tikka Masala",

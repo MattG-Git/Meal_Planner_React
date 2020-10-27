@@ -1,4 +1,4 @@
-export const Seafood = [
+export const SEAFOOD = [
     {
         id: 0,
         name: "Grilled Salmon",
