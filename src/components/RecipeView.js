@@ -3,7 +3,7 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
   } from 'reactstrap';
-  import { BEEF } from '../shared/beef';
+
 
 //will need event handler and function for click on card add to calendar
 
@@ -24,15 +24,17 @@ function RenderRecipe ( {recipe} ) {
 
 }
 
-
-function RecipeView (props) { 
-
+function RecipeView(props) { 
+/*
     const beef = BEEF; 
-
-    const recipeList = beef.map(recipe => { 
-        return (
+    const chicken = CHICKEN; 
+    const seafood = SEAFOOD; 
+*/
+    const recipeList = props.currentProtein.map(recipe => { 
+        return (  
             <div key={recipe.id}>
                 <RenderRecipe recipe={recipe} /> 
+                {RenderRecipe}
             </div>
         );
     });
@@ -44,6 +46,7 @@ function RecipeView (props) {
             </div>
         </div>
     );
-}
+    }
+
 
 export default RecipeView; 

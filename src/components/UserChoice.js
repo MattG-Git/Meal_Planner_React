@@ -1,36 +1,46 @@
-import React from 'react';
-import {Form, FormGroup, Button, Input, Label} from 'reactstrap';
+import React, { Component } from 'react';
+import { Form, FormGroup, Button, Input } from 'reactstrap';
+import RecipeView from './RecipeView'; 
 
-function UserChoice(props) {
+class UserChoice extends Component {
+  constructor(props) { 
+    super(props); 
+    this.state = {  
+      currentDay: 'MONDAY', 
+      currentProtein: 'BEEF'
+    };
+    this.handleUserChoices = this.handleUserChoices.bind(this); 
+    this.storeDay = this.storeDay.bind(this); 
+    this.storeProtein = this.storeProtein.bind(this); 
+  }
+storeDay(e) {
+    this.setState({
+      currentDay: e.target.value
+    }); 
+    return console.log(this.state.currentDay); 
+  } 
+storeProtein(e) {
+    this.setState({ 
+      currentProtein: e.target.value
+    }); 
+   return console.log(this.state.currentProtein);
+}
 
-  let dayOfWeek = 'MONDAY'; 
-  let proteinChoice = 'BEEF'; 
-  
-  
-  const storeDay = (e) => {
-      dayOfWeek = e.target.value; 
-      console.log(dayOfWeek); 
-      return dayOfWeek; 
-
+handleUserChoices() { 
+    return ( 
+      <div> 
+        <RecipeView currentProtein={this.state.currentProtein} currentDay={this.state.currentDay} plannedRecipes={this.state.plannedRecipes} />
+      </div>
+    ); 
   }; 
 
-  const storeProtein = (e) => {
-    proteinChoice = e.target.value; 
-    console.log(proteinChoice); 
-    return proteinChoice; 
-
-}; 
-
-  const handleUserChoices = () => { 
-  
-
-  }; 
-
+  render () { 
     return (
-      <Form onSubmit={handleUserChoices}>
+      <div>
+      <Form onSubmit={this.handleUserChoices} >
           <FormGroup>
-                <Input onChange={storeDay} type="select" name="dayofweek" id="dayofweek">
-                <option disabled selected> Select A Day</option>
+                <Input onChange={this.storeDay} type="select" name="dayofweek" id="dayofweek">
+                <option defaultValue> Select A Day</option>
                 <option>MONDAY</option>
                 <option>TUESDAY</option>
                 <option>WEDNESDAY</option>
@@ -39,18 +49,21 @@ function UserChoice(props) {
                 <option>SATURDAY</option>
                 <option>SUNDAY</option>
                 </Input>
-                <Input onChange={storeProtein} type="select" name="proteinchoice" id="proteinchoice">
-                  <option disabled selected> Select A Protein</option>
+                <Input onChange={this.storeProtein} type="select" name="proteinchoice" id="proteinchoice">
+                  <option defaultValue> Select A Protein</option>
                   <option>BEEF</option>
                   <option>CHICKEN</option>
-                  <option>PORK</option>
                   <option>SEAFOOD</option>
-                  <option>VEGETARIAN</option>
                 </Input>
                 <Button type="submit" outline color="primary">Submit</Button>
           </FormGroup>
       </Form>
+      
+      </div>
+
     );
   }
+
+};
 
 export default UserChoice;
