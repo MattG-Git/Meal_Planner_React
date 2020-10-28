@@ -5,10 +5,10 @@ import RecipeView from './RecipeView';
 class UserChoice extends Component {
   constructor(props) { 
     super(props); 
-    this.state = {  
+    this.state = { 
       currentDay: 'MONDAY', 
-      currentProtein: 'BEEF'
-    };
+      currentProtein: [],
+    }; 
     this.handleUserChoices = this.handleUserChoices.bind(this); 
     this.storeDay = this.storeDay.bind(this); 
     this.storeProtein = this.storeProtein.bind(this); 
@@ -21,15 +21,16 @@ storeDay(e) {
   } 
 storeProtein(e) {
     this.setState({ 
-      currentProtein: e.target.value
+      currentProtein: this.state.currentProtein.push(this.props.allrecipes.filter(recipe => { return recipe.type === e.target.value }))
     }); 
+
    return console.log(this.state.currentProtein);
 }
 
 handleUserChoices() { 
     return ( 
       <div> 
-        <RecipeView currentProtein={this.state.currentProtein} currentDay={this.state.currentDay} plannedRecipes={this.state.plannedRecipes} />
+        <RecipeView currentProtein={this.state.currentProtein} currentDay={this.state.currentDay} />
       </div>
     ); 
   }; 
@@ -58,12 +59,12 @@ handleUserChoices() {
                 <Button type="submit" outline color="primary">Submit</Button>
           </FormGroup>
       </Form>
-      
       </div>
-
     );
   }
 
 };
+
+
 
 export default UserChoice;

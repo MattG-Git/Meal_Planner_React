@@ -25,28 +25,26 @@ function RenderRecipe ( {recipe} ) {
 }
 
 function RecipeView(props) { 
-/*
-    const beef = BEEF; 
-    const chicken = CHICKEN; 
-    const seafood = SEAFOOD; 
-*/
+
     const recipeList = props.currentProtein.map(recipe => { 
+
         return (  
             <div key={recipe.id}>
                 <RenderRecipe recipe={recipe} /> 
-                {RenderRecipe}
             </div>
         );
+
     });
 
-    return (
-        <div className="container">
-            <div className="row">
-                {recipeList}
+
+        return ( 
+            <div className="container">
+                <div className="row">
+                    {recipeList}
+                </div>
             </div>
-        </div>
-    );
-    }
+        ); 
+    } 
 
 
 export default RecipeView; 
