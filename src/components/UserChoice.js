@@ -1,46 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Form, FormGroup, Button, Input } from 'reactstrap';
-import RecipeView from './RecipeView'; 
+import { Link } from 'react-router-dom';
+import { ALLRECIPES } from '../shared/allrecipes';
 
-class UserChoice extends Component {
-  constructor(props) { 
-    super(props); 
-    this.state = { 
-      currentDay: 'MONDAY', 
-      currentProtein: [],
-    }; 
-    this.handleUserChoices = this.handleUserChoices.bind(this); 
-    this.storeDay = this.storeDay.bind(this); 
-    this.storeProtein = this.storeProtein.bind(this); 
-  }
-storeDay(e) {
-    this.setState({
-      currentDay: e.target.value
-    }); 
-    return console.log(this.state.currentDay); 
-  } 
-storeProtein(e) {
-    this.setState({ 
-      currentProtein: this.state.currentProtein.push(this.props.allrecipes.filter(recipe => { return recipe.type === e.target.value }))
-    }); 
 
-   return console.log(this.state.currentProtein);
-}
+const UserChoice = ( {currentDay, setCurrentDay, currentProtein, setCurrentProtein} )  => {
 
-handleUserChoices() { 
-    return ( 
-      <div> 
-        <RecipeView currentProtein={this.state.currentProtein} currentDay={this.state.currentDay} />
-      </div>
-    ); 
-  }; 
+  const allrecipes = ALLRECIPES; 
 
-  render () { 
+  const storeDay = (e) => {
+    setCurrentDay(e.target.value);
+    console.log(currentDay);    
+    return currentDay;
+  };
+
+  const storeProtein = (e) => {
+    setCurrentProtein(allrecipes.filter(recipe => { return recipe.type === e.target.value } )); 
+    console.log(currentProtein); 
+    return currentProtein; 
+
+}; 
+
     return (
       <div>
-      <Form onSubmit={this.handleUserChoices} >
+      <Form>
           <FormGroup>
-                <Input onChange={this.storeDay} type="select" name="dayofweek" id="dayofweek">
+                <Input onChange={storeDay} type="select" name="dayofweek" id="dayofweek">
                 <option defaultValue> Select A Day</option>
                 <option>MONDAY</option>
                 <option>TUESDAY</option>
@@ -50,20 +35,20 @@ handleUserChoices() {
                 <option>SATURDAY</option>
                 <option>SUNDAY</option>
                 </Input>
-                <Input onChange={this.storeProtein} type="select" name="proteinchoice" id="proteinchoice">
+                <Input onChange={storeProtein} type="select" name="proteinchoice" id="proteinchoice">
                   <option defaultValue> Select A Protein</option>
                   <option>BEEF</option>
                   <option>CHICKEN</option>
                   <option>SEAFOOD</option>
                 </Input>
-                <Button type="submit" outline color="primary">Submit</Button>
+                <Link to="/recipeview" > 
+                  <Button type="button" outline color="primary">Submit</Button>
+                </Link> 
           </FormGroup>
-      </Form>
+      </Form> 
       </div>
     );
   }
-
-};
 
 
 

@@ -5,7 +5,9 @@ import {
   } from 'reactstrap';
 
 
-const RenderRecipe = ( {recipe} ) => { 
+//will need event handler and function for click on card add to calendar
+
+function RenderRecipe ( {recipe} ) { 
 
     return ( 
         <Card>
@@ -22,14 +24,15 @@ const RenderRecipe = ( {recipe} ) => {
 
 }
 
-const RecipeView = ( {currentDay, setCurrentDay, currentProtein, setCurrentProtein, plannedRecipes, setPlannedRecipes } ) => { 
+function RecipeView( {currentProtein} ) { 
 
-const recipeList = currentProtein.map(recipe => { 
+    const recipeList = currentProtein.map(recipe => { 
         return (  
             <div key={recipe.id}>
                 <RenderRecipe recipe={recipe} /> 
             </div>
         );
+
     });
 
 
@@ -41,9 +44,6 @@ const recipeList = currentProtein.map(recipe => {
             </div>
         ); 
     } 
-    
-
-
 
 
 export default RecipeView; 
