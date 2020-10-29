@@ -9,15 +9,15 @@ import { ALLRECIPES } from '../shared/allrecipes';
 
 const Home = () => {
 
- const [plannedRecipes, setPlannedRecipes] = useState([{}]);
+ const [plannedRecipes, setPlannedRecipes] = useState([]);
  const [currentDay, setCurrentDay] = useState(""); 
  const [currentProtein, setCurrentProtein] = useState([]);
 
     return (
       <div className="Home">
           <h1>Weekly Meal Planner</h1>
+          <Calendar currentDay={currentDay} setCurrentDay={setCurrentDay} currentProtein={currentProtein} setCurrentProtein={setCurrentProtein} setPlannedRecipes={setPlannedRecipes} plannedRecipes={plannedRecipes} />
           <Switch> 
-          <Route path="/calender" render={ () => <Calendar currentDay={currentDay} setCurrentDay={setCurrentDay} currentProtein={currentProtein} setCurrentProtein={setCurrentProtein} setPlannedRecipes={setPlannedRecipes} plannedRecipes={plannedRecipes}/>} /> 
             <Route path="/userchoice" render={ () => <UserChoice currentDay={currentDay} setCurrentDay={setCurrentDay} currentProtein={currentProtein} setCurrentProtein={setCurrentProtein} setPlannedRecipes={setPlannedRecipes} plannedRecipes={plannedRecipes} />} />  
             <Route path="/recipeview" render={ () => <RecipeView currentDay={currentDay} setCurrentDay={setCurrentDay} currentProtein={currentProtein} setCurrentProtein={setCurrentProtein} setPlannedRecipes={setPlannedRecipes} plannedRecipes={plannedRecipes} /> } />
             <Redirect to="/userchoice" /> 

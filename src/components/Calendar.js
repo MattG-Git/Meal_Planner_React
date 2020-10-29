@@ -1,8 +1,34 @@
 import React from 'react';
 import {Table} from 'reactstrap';
 
+/*const renderCalender = ( {plannedRecipes} ) => { 
 
-function Calendar(props) {
+const calendarList = plannedRecipes.map(d => { 
+  return (
+    <div>
+      <h2>d.day</h2>
+      <h2>d.choice</h2>
+      <a href={d.link}>Link to Full Recipe</a>
+    </div>
+  ); 
+
+
+})
+
+} */ 
+
+const Calendar = ( {plannedRecipes} ) => {
+  const calendarList = plannedRecipes.map(d => { 
+    return (
+      <div>
+        <h2>{d.day}</h2>
+        <h2>{d.choice}</h2>
+        <a href={d.link}>Link to Full Recipe</a>
+      </div>
+    ); 
+  
+  
+  })
     return (
       <div className='Calendar'>
           <Table responsive>
@@ -29,8 +55,10 @@ function Calendar(props) {
                 </tr>
             </tbody>
             </Table>
+            {calendarList}
       </div>
     );
+    
   }
 
   export default Calendar;
