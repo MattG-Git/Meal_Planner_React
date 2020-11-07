@@ -24,8 +24,8 @@ const UserChoice = ( {currentDay, setCurrentDay, currentProtein, setCurrentProte
     return (
       <div>
       <Form>
-          <FormGroup>
-                <Input onChange={storeDay} type="select" name="dayofweek" id="dayofweek">
+          <FormGroup className='row mt-5'>
+                <Input className='col-sm-4 mr-3 mt-5 m-auto' onChange={storeDay} type="select" name="dayofweek" id="dayofweek">
                 <option defaultValue> Select A Day</option>
                 <option>MONDAY</option>
                 <option>TUESDAY</option>
@@ -35,16 +35,16 @@ const UserChoice = ( {currentDay, setCurrentDay, currentProtein, setCurrentProte
                 <option>SATURDAY</option>
                 <option>SUNDAY</option>
                 </Input>
-                <Input onChange={storeProtein} type="select" name="proteinchoice" id="proteinchoice">
+                <Input className='col-sm-4 m-auto' onChange={storeProtein} type="select" name="proteinchoice" id="proteinchoice">
                   <option defaultValue> Select A Protein</option>
                   <option>BEEF</option>
                   <option>CHICKEN</option>
                   <option>SEAFOOD</option>
                 </Input>
-                <Link to="/recipeview" > 
-                  <Button type="button" outline color="primary">Submit</Button>
-                </Link> 
           </FormGroup>
+          <Link to="/recipeview" > 
+              <Button className='mt-5 mb-5'type="button">Submit</Button>
+          </Link> 
       </Form> 
       </div>
     );

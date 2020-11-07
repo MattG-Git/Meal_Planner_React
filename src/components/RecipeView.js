@@ -24,7 +24,7 @@ const RenderRecipe = ( {recipe, currentDay, setPlannedRecipes, plannedRecipes} )
         <Card>
         <CardImg top width="100%" src={recipe.src} alt={recipe.name} />
         <CardBody>
-          <CardTitle>{recipe.name}</CardTitle>
+          <CardTitle className='recipename'>{recipe.name}</CardTitle>
           <CardSubtitle>Serves:{recipe.servings}</CardSubtitle>
           <CardText>Ingredient List: {recipe.ingredients}</CardText>
           <CardText><a href={recipe.instructions}>Link to Full Recipe</a></CardText>

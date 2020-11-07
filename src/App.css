@@ -1,1 +1,24 @@
+h1 { 
+    background-color: #70798C;
+    color: #f5f1ed;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 75px !important;
+    padding: 10%;
+}
 
+h2 {
+    color:#A99985;
+}
+
+Button{
+    background-color: #252323 !important;
+}
+
+Button:hover{
+    background-color: #70798c !important;
+}
+
+.recipename {
+    font-size: 35px;
+    color:#A99985;
+}

@@ -14,8 +14,8 @@ const Home = () => {
  const [currentProtein, setCurrentProtein] = useState([]);
 
     return (
-      <div className="Home">
-          <h1>Weekly Meal Planner</h1>
+      <div className="Home text-center">
+          <h1 className='mb-4'>Weekly Meal Planner</h1>
           <Calendar currentDay={currentDay} setCurrentDay={setCurrentDay} currentProtein={currentProtein} setCurrentProtein={setCurrentProtein} setPlannedRecipes={setPlannedRecipes} plannedRecipes={plannedRecipes} />
           <Switch> 
             <Route path="/userchoice" render={ () => <UserChoice currentDay={currentDay} setCurrentDay={setCurrentDay} currentProtein={currentProtein} setCurrentProtein={setCurrentProtein} setPlannedRecipes={setPlannedRecipes} plannedRecipes={plannedRecipes} />} />  

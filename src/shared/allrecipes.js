@@ -56,7 +56,7 @@ export const ALLRECIPES = [
     {
         id: 6,
         name: "Grilled Salmon",
-        image: "../images/grilled_salmon.jpg",
+        image: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F24%2F2020%2F01%2F27%2Feasygrilledsalmon_095-s-2000.jpg ",
         ingredients: "Skin-on salmon fillets, Olive oil, black pepper, kosher salt, Juice from a lemon, chopped parsley, chopped shallot, Dijon mustard",
         instructions: "https://www.southernliving.com/recipes/easy-grilled-salmon",
         servings: "4",
@@ -65,7 +65,7 @@ export const ALLRECIPES = [
     {
         id: 7,
         name: "Rum Glazed Shrimp",
-        image: "../images/rum-glazed-shrimp.jpg",
+        image: "./images/rum-glazed-shrimp.jpg",
         ingredients: "Peeled and Deveined Shrimp, Olive oil, Sweet Chili sauce, soy sauce, Captain Morgan Spiced Rum, minced garlic, lime juice, crushed red pepper flakes, green onion",
         instructions: "https://www.delish.com/cooking/a26551522/spiced-rum-glazed-shrimp-recipe/",
         servings: "4",
