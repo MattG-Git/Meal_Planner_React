@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { Button } from 'reactstrap'; 
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Calendar from './Calendar'; 
 import UserChoice from './UserChoice'; 
 import RecipeView from './RecipeView'; 
-import { ALLRECIPES } from '../shared/allrecipes';
 
 
 
@@ -22,6 +22,7 @@ const Home = () => {
             <Route path="/recipeview" render={ () => <RecipeView currentDay={currentDay} setCurrentDay={setCurrentDay} currentProtein={currentProtein} setCurrentProtein={setCurrentProtein} setPlannedRecipes={setPlannedRecipes} plannedRecipes={plannedRecipes} /> } />
             <Redirect to="/userchoice" /> 
           </Switch> 
+          <Button onClick={()=>{setPlannedRecipes([])}}>Clear Calendar</Button>
       </div>  
     );
   }

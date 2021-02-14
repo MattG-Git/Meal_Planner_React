@@ -1,7 +1,7 @@
 import React from 'react'; 
 import {
     Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    CardTitle, CardSubtitle, Button, Container, Row
   } from 'reactstrap';
 import { Link } from 'react-router-dom'; 
 
@@ -21,18 +21,22 @@ const RenderRecipe = ( {recipe, currentDay, setPlannedRecipes, plannedRecipes} )
     };
 
     return ( 
-        <Card>
-        <CardImg top width="100%" src={recipe.src} alt={recipe.name} />
-        <CardBody>
-          <CardTitle className='recipename'>{recipe.name}</CardTitle>
-          <CardSubtitle>Serves:{recipe.servings}</CardSubtitle>
-          <CardText>Ingredient List: {recipe.ingredients}</CardText>
-          <CardText><a href={recipe.instructions}>Link to Full Recipe</a></CardText>
-          <Link to="/userchoice">
-             <Button onClick={storeRecipe} >Add to Calendar</Button>
-          </Link>
-        </CardBody>
-      </Card>
+        <Container>
+                <Card>
+                <Row className="justify-content-center">
+                    <CardImg style={{maxHeight:"375px", maxWidth:"375px"}} src={recipe.image} alt={recipe.name} />
+                    <CardBody>
+                    <CardTitle className='recipename'>{recipe.name}</CardTitle>
+                    <CardSubtitle>Serves:{recipe.servings}</CardSubtitle>
+                    <CardText>Ingredient List: {recipe.ingredients}</CardText>
+                    <CardText><a href={recipe.instructions}>Link to Full Recipe</a></CardText>
+                    <Link to="/userchoice">
+                        <Button onClick={storeRecipe} >Add to Calendar</Button>
+                    </Link>
+                    </CardBody>
+                    </Row>
+                </Card>
+      </Container>
     ); 
 
 }
